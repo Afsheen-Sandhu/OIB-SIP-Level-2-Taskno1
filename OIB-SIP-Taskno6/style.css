@@ -1,0 +1,240 @@
+body {
+    font-family: 'General Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    background: linear-gradient(to right, #3ca657 70%, #3ca657 30%);
+
+    line-height: 1.6;
+}
+
+header {
+    background-color: #01411c;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+main {
+    padding: 20px;
+    max-width: 1200px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+section {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.profile {
+    grid-column: 1 / -1;
+    text-align: center;
+}
+
+.profile img {
+    width: 400px;
+    max-width: 100%;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+h2 {
+    color: #01411c;
+    margin-bottom: 20px;
+}
+
+.achievements ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.achievements li {
+    background-color: #e0e0e0;
+    margin: 5px 0;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.gallery {
+    grid-column: 1 / -1;
+    text-align: center;
+}
+
+.gallery-images {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.gallery-images img {
+    width: 450px;
+    border-radius: 10px;
+    transition: transform 0.2s;
+}
+
+.gallery-images img:hover {
+    transform: scale(1.1);
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+.background, .early-life {
+    background-color: #f9f9f9;
+    border-left: 5px solid #01411c;
+    border-radius: 5px;
+}
+.confetti-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 9999;
+}
+
+.confetti-piece {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: #f00; /* Default color (red) */
+    animation: fall 3s infinite ease-in both;
+    opacity: 0.8;
+    border-radius: 50%;
+}
+
+.confetti-piece:nth-child(2n) {
+    background-color: #0f0; /* Green */
+}
+
+.confetti-piece:nth-child(3n) {
+    background-color: #00f; /* Blue */
+}
+
+.confetti-piece:nth-child(4n) {
+    background-color: #ff0; /* Yellow */
+}
+
+.confetti-piece:nth-child(5n) {
+    background-color: #f0f; /* Purple */
+}
+
+.confetti-piece:nth-child(6n) {
+    background-color: #0ff; /* Cyan */
+}
+
+.confetti-piece:nth-child(7n) {
+    background-color: #ff6347; /* Tomato */
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(-100vh) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0.5;
+    }
+}
+
+/* Randomize starting positions and animations */
+.confetti-piece {
+    left: calc(100% * var(--i) / 10);
+    animation-delay: calc(var(--i) * -0.5s);
+}
+
+.confetti-piece:nth-child(1) { --i: 1; }
+.confetti-piece:nth-child(2) { --i: 2; }
+.confetti-piece:nth-child(3) { --i: 3; }
+.confetti-piece:nth-child(4) { --i: 4; }
+.confetti-piece:nth-child(5) { --i: 5; }
+.confetti-piece:nth-child(6) { --i: 6; }
+.confetti-piece:nth-child(7) { --i: 7; }
+.confetti-piece:nth-child(8) { --i: 8; }
+.confetti-piece:nth-child(9) { --i: 9; }
+.confetti-piece:nth-child(10) { --i: 10; }
+.fireworks-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 9999;
+}
+
+.firework {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 4px;
+    height: 4px;
+    background-color: transparent;
+    border-radius: 50%;
+    box-shadow: 0 0 8px #fff, 0 0 16px #f00, 0 0 24px #0f0, 0 0 32px #00f;
+    animation: launch 2s ease-in-out infinite, explode 2s ease-in-out infinite;
+}
+
+@keyframes launch {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    80% {
+        transform: translateY(-50vh);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-50vh);
+        opacity: 0;
+    }
+}
+
+@keyframes explode {
+    0%, 80% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    90% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1.5);
+        opacity: 0;
+    }
+}
+
+/* Variations for different fireworks */
+.firework:nth-child(1) {
+    left: 20%;
+    animation-delay: 0s;
+}
+
+.firework:nth-child(2) {
+    left: 50%;
+    animation-delay: 1s;
+}
+
+.firework:nth-child(3) {
+    left: 80%;
+    animation-delay: 2s;
+}
